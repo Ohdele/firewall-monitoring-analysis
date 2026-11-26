@@ -5,18 +5,7 @@ Deploy and harden a pfSense firewall within a virtualized lab environment, imple
 
 ## 2. Architecture
 
-```mermaid
-flowchart LR
-    WAN["WAN / Internet<br/>10.0.2.15"] --> FW["pfSense Firewall<br/>LAN: 192.168.56.121<br/>OPT1: 192.168.57.121<br/>OPT2: 192.168.58.1"]
-    FW --- IDS["Suricata IDS/IPS<br/>LAN em1 / Legacy Mode"]
-    FW --- LAN["LAN Segment<br/>192.168.56.0/24"]
-    LAN --- KALI["Kali Linux<br/>192.168.56.101"]
-    LAN --- SPLUNK["Splunk Enterprise<br/>192.168.56.130<br/>index=splunk_soc"]
-    FW --- OPT1["OPT1 Segment<br/>192.168.57.0/24"]
-    OPT1 --- META["Metasploitable2<br/>192.168.57.10"]
-    FW --- OPT2["OPT2 Segment<br/>192.168.58.0/24"]
-    FW -- "RFC 5424 Syslog / UDP 5514" --> SPLUNK
-```
+<img src="Screenshots/firewall-Archi.png">
 
 ## 3. Tools & Technologies
 
